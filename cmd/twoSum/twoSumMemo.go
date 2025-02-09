@@ -1,6 +1,6 @@
-package main
+package twoSum
 
-func twoSumMemo(values []int, target int) []int {
+func TwoSumMemo(values []int, target int) []int {
 	memo := make(map[int]struct{})
 	for _, value := range values {
 		diff := target - value

@@ -1,6 +1,6 @@
-package main
+package twoSum
 
-func twoSumIter(values []int, target int) []int {
+func TwoSumIter(values []int, target int) []int {
 	for i := 0; i < len(values); i++ {
 		for j := i + 1; j < len(values); j++ {
 			if values[i]+values[j] == target {
