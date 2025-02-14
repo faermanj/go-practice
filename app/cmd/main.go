@@ -2,13 +2,34 @@ package main
 
 import (
 	"log"
+    "github.com/gin-gonic/gin"
 
 	"go-practice/cmd/hello"
-
 	"go-practice/cmd/twoSum"
+	"go-practice/cmd/mutant"
+	"go-practice/cmd/handlers"
+
 )
 
 func main() {
+	r := gin.Default()
+
+    r.POST("/mutant", handlers.IsMutantHandler)
+
+    r.Run(":8080") // Run on port 8080
+
+	return;
+
+	isMutant := mutant.IsMutant([]string{
+		"ATGCGA", 
+		"CAGTGC", 
+		"TTATGT", 
+		"AGATTG", 
+		"TCCCTA", 
+		"TCACTG"})
+	log.Printf("Is mutant? %t\n", isMutant)
+
+
 	// Hello, World!
 	log.Printf("%s", hello.Hello())
 

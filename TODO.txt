@@ -1,0 +1,5 @@
+Next practice session:
+* Check how to move handlers to pkg/
+* Add docker support to the devcontainer image
+* Ensure container image is built and pushed
+* add VPC and basic ECS to go cdk

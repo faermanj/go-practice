@@ -2,7 +2,10 @@
     "name": "Devcontainer + Devbox",
     "image": "mcr.microsoft.com/devcontainers/base",
     "features": {
-        "ghcr.io/dlouwers/devcontainer-features/devbox:1": {}
+        "ghcr.io/dlouwers/devcontainer-features/devbox:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2.12.0": {},
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers-extra/features/aws-cdk:2": {}
     },
     "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install --lts && devbox install",
     "customizations": {
