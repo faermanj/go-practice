@@ -1,0 +1,13 @@
+[ "TTGCGA", 
+  "CAGTGC", 
+  "TTATGT", 
+  "AGAAGG", 
+  "CCCCTA", 
+  "TCACTG"]
+
+  [ "TTGCGA", 
+    "CAGTGC", 
+    "TTATGT", 
+    "AGAAGG", 
+    "CCCTTA", 
+    "TCACTG"]
