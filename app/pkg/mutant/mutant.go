@@ -1,7 +1,7 @@
 package mutant
 
 import (
-	"fmt"
+	"log"
 )
 
 func checkOne(dna []string, curr string, x int, y int) bool {
@@ -37,10 +37,10 @@ func IsMutant(dna []string) bool {
 	for i, row := range dna {
 		for j, col := range row {
 			curr := string(col)
-			fmt.Printf("i: %d, j: %d, col: %s\n", i, j, curr)
+			//fmt.Printf("i: %d, j: %d, col: %s\n", i, j, curr)
 			if (matchDNA(dna, i, j, curr)) {
-				fmt.Printf("Matched DNA: %s\n", curr)
-				return true;
+				log.Printf("DEBUG: Matched DNA: %s", curr)
+				return true
 			}
 		}
 	}

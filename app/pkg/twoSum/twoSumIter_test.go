@@ -12,7 +12,10 @@ func TestTwoSumIter(t *testing.T) {
 		t.Errorf("Expected result %v, but got nil", expected)
 		return
 	}
-	if result[0] != expected[0] || result[1] != expected[1] {
+	matchOrdered := result[0] == expected[0] && result[1] == expected[1]
+	matchUnordered := result[0] == expected[1] && result[1] == expected[0]
+	var matches = matchOrdered || matchUnordered
+	if (!matches) {
 		t.Errorf("Expected result %v, but got %v", expected, result)
 	}
 }
