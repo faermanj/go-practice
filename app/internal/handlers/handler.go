@@ -4,28 +4,39 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Handler represents a collection of HTTP handlers with their dependencies
-type Handler struct {
-	// Add any dependencies here
-	// db *sql.DB
-	// services *Services
+// RouteHandler interface defines what each handler must implement
+type RouteHandler interface {
+	Routes() []Route
 }
 
-// NewHandler creates a new handler instance with dependencies
-func NewHandler() *Handler {
-	return &Handler{
-		// Initialize dependencies
+// Route defines a single route with its method, path and handler
+type Route struct {
+	Method  string
+	Path    string
+	Handler gin.HandlerFunc
+}
+
+// Register registers all handlers in the handlers package
+func Register(r *gin.Engine) {
+	// Add all handlers here
+	handlers := []RouteHandler{
+		NewHelloHandler(),
+		NewMutantHandler(),
+	}
+
+	// Register all routes from all handlers
+	for _, h := range handlers {
+		for _, route := range h.Routes() {
+			switch route.Method {
+			case "GET":
+				r.GET(route.Path, route.Handler)
+			case "POST":
+				r.POST(route.Path, route.Handler)
+			case "PUT":
+				r.PUT(route.Path, route.Handler)
+			case "DELETE":
+				r.DELETE(route.Path, route.Handler)
+			}
+		}
 	}
 }
-
-// Register registers all routes for this handler
-func (h *Handler) Register(r *gin.Engine) {
-	// Register all routes here
-	r.POST("/mutant", h.IsMutantHandler)
-	// Add more routes as needed
-}
-
-// IsMutantHandler handles the mutant endpoint
-func (h *Handler) IsMutantHandler(c *gin.Context) {
-	// Your existing handler logic
-} 
