@@ -9,13 +9,13 @@ package main
 // )
 
 // example tests. To run these tests, uncomment this file along with the
-// example resource in cdk_test.go
-// func TestCdkStack(t *testing.T) {
+// example resource in cluster_test.go
+// func TestClusterStack(t *testing.T) {
 // 	// GIVEN
 // 	app := awscdk.NewApp(nil)
 
 // 	// WHEN
-// 	stack := NewCdkStack(app, "MyStack", nil)
+// 	stack := NewClusterStack(app, "MyStack", nil)
 
 // 	// THEN
 // 	template := assertions.Template_FromStack(stack, nil)

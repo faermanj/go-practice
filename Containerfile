@@ -1,36 +1,18 @@
 # docker build -f Containerfile --progress=plain --no-cache -t go-practice .
 # docker run --network=host go-practice
 
-# Build stage
 FROM jetpackio/devbox:latest AS builder
 
-WORKDIR /devbox
-
-# Copy the source code
-COPY . .
-
-USER root
-RUN chown -R devbox .
 USER devbox
+WORKDIR /devbox
+COPY --chown=devbox . .
+RUN eval "$(devbox shell --print-env)" && \
+    cd app && \
+    GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o go-practice ./cmd/main.go
 
-# Ensure proper permissions for devbox
-RUN whoami
-
-RUN devbox install
-
-# Build the application using devbox
-RUN devbox run -- go build -o app ./cmd/main.go
-
-# Runtime stage
 FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
 
-WORKDIR /devbox
-
-# Copy the compiled binary from builder
-COPY --from=builder /devbox/app .
-
-# Expose the port the app runs on
+COPY --from=builder --chown=nobody /devbox/app/go-practice /app/go-practice
+USER nobody
 EXPOSE 8080
-
-# Run the application
-CMD ["./app"]
+ENTRYPOINT ["/app/go-practice"]

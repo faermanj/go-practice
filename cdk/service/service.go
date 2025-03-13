@@ -1,18 +1,17 @@
 package main
 
 import (
-	"fmt"
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	// "github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/aws/jsii-runtime-go"
 )
 
-type CdkStackProps struct {
+type ServiceStackProps struct {
 	awscdk.StackProps
 }
 
-func NewCdkStack(scope constructs.Construct, id string, props *CdkStackProps) awscdk.Stack {
+func NewServiceStack(scope constructs.Construct, id string, props *ServiceStackProps) awscdk.Stack {
 	var sprops awscdk.StackProps
 	if props != nil {
 		sprops = props.StackProps
@@ -22,10 +21,10 @@ func NewCdkStack(scope constructs.Construct, id string, props *CdkStackProps) aw
 	// The code that defines your stack goes here
 
 	// example resource
-	queue := awssqs.NewQueue(stack, jsii.String("CdkQueue"), &awssqs.QueueProps{
-	 	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(333)),
-	})
-	fmt.Println(queue.QueueArn())
+	// queue := awssqs.NewQueue(stack, jsii.String("ServiceQueue"), &awssqs.QueueProps{
+	// 	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(300)),
+	// })
+
 	return stack
 }
 
@@ -34,7 +33,7 @@ func main() {
 
 	app := awscdk.NewApp(nil)
 
-	NewCdkStack(app, "CdkStack", &CdkStackProps{
+	NewServiceStack(app, "ServiceStack", &ServiceStackProps{
 		awscdk.StackProps{
 			Env: env(),
 		},
