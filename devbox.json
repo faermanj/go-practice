@@ -3,14 +3,18 @@
   "packages": [
     "go@latest",
     "docker@latest",
-    "nodejs@latest"
+    "nodejs@latest",
+    "fortune@latest",
+    "air@latest"
   ],
   "shell": {
     "init_hook": [
       "echo 'Welcome to devbox!' > /dev/null"
     ],
     "scripts": {
-      "tests": "cd app/pkg && go test -v ./..."
+      "build": "./scripts/app-build.sh",
+      "tests": "./scripts/app-tests.sh",
+      "image": "./scripts/app-image.sh"
     }
   }
 }

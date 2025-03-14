@@ -1,13 +1,13 @@
 package main
 
 import (
-	"go-practice/internal/handlers"
+	h "go-practice/pkg/handler"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	r := gin.Default()
-	handlers.Register(r)
+	h.Register(r)
 	r.Run(":8080")
 }

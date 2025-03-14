@@ -1,6 +1,54 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "air@latest": {
+      "last_modified": "2025-03-11T17:52:14Z",
+      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#air",
+      "source": "devbox-search",
+      "version": "1.61.7",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ml148gjvir4c3milb7hpyvc6wkg4jj0g-air-1.61.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ml148gjvir4c3milb7hpyvc6wkg4jj0g-air-1.61.7"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/k4yqs3wv9xq06d7z5sybfnawdvffbqvg-air-1.61.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/k4yqs3wv9xq06d7z5sybfnawdvffbqvg-air-1.61.7"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0mzfk6rkcyq3vkcq7spkhk806nav49c3-air-1.61.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0mzfk6rkcyq3vkcq7spkhk806nav49c3-air-1.61.7"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/brz67rbbzwbn8ay68sc3dzbb7hv88q9m-air-1.61.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/brz67rbbzwbn8ay68sc3dzbb7hv88q9m-air-1.61.7"
+        }
+      }
+    },
     "docker@latest": {
       "last_modified": "2025-01-31T04:26:24Z",
       "resolved": "github:NixOS/nixpkgs/9189ac18287c599860e878e905da550aa6dec1cd#docker",
@@ -46,6 +94,54 @@
             }
           ],
           "store_path": "/nix/store/jnzrrks201f2abb205zs0n5dddj7az9r-docker-27.5.1"
+        }
+      }
+    },
+    "fortune@latest": {
+      "last_modified": "2025-02-07T11:26:36Z",
+      "resolved": "github:NixOS/nixpkgs/d98abf5cf5914e5e4e9d57205e3af55ca90ffc1d#fortune",
+      "source": "devbox-search",
+      "version": "3.24.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/4bqdp4b3k5zqcwvs578xpjma13rpckzn-fortune-mod-3.24.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/4bqdp4b3k5zqcwvs578xpjma13rpckzn-fortune-mod-3.24.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/mrr50j2sc8ms6c97wjfjzl0dwv6w643r-fortune-mod-3.24.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/mrr50j2sc8ms6c97wjfjzl0dwv6w643r-fortune-mod-3.24.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/g4gd93hac6i3zz2p36alng37bsnsvgay-fortune-mod-3.24.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/g4gd93hac6i3zz2p36alng37bsnsvgay-fortune-mod-3.24.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/6kji16y5rxfaqg3phb7b2bflxiki3jc2-fortune-mod-3.24.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/6kji16y5rxfaqg3phb7b2bflxiki3jc2-fortune-mod-3.24.0"
         }
       }
     },

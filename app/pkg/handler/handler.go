@@ -1,27 +1,23 @@
 package handlers
 
 import (
+	hs "go-practice/pkg/handlers"
+
+	"go-practice/pkg/fortune"
+
 	"github.com/gin-gonic/gin"
+
+	"go-practice/pkg/hello"
+	"go-practice/pkg/mutant"
 )
-
-// RouteHandler interface defines what each handler must implement
-type RouteHandler interface {
-	Routes() []Route
-}
-
-// Route defines a single route with its method, path and handler
-type Route struct {
-	Method  string
-	Path    string
-	Handler gin.HandlerFunc
-}
 
 // Register registers all handlers in the handlers package
 func Register(r *gin.Engine) {
 	// Add all handlers here
-	handlers := []RouteHandler{
-		NewHelloHandler(),
-		NewMutantHandler(),
+	handlers := []hs.RouteHandler{
+		fortune.NewFortuneHandler(),
+		hello.NewHelloHandler(),
+		mutant.NewMutantHandler(),
 	}
 
 	// Register all routes from all handlers

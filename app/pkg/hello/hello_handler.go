@@ -1,7 +1,8 @@
-package handlers
+package hello
 
 import (
-	"go-practice/pkg/hello"
+	"go-practice/pkg/handlers"
+
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -13,8 +14,8 @@ func NewHelloHandler() *HelloHandler {
 	return &HelloHandler{}
 }
 
-func (h *HelloHandler) Routes() []Route {
-	return []Route{
+func (h *HelloHandler) Routes() []handlers.Route {
+	return []handlers.Route{
 		{
 			Method:  "GET",
 			Path:    "/hello",
@@ -24,5 +25,5 @@ func (h *HelloHandler) Routes() []Route {
 }
 
 func (h *HelloHandler) HelloWorld(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": hello.Hello()})
+	c.JSON(http.StatusOK, gin.H{"message": Hello()})
 }

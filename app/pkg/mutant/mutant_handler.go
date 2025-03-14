@@ -1,8 +1,9 @@
-package handlers
+package mutant
 
 import (
-	"go-practice/pkg/mutant"
 	"net/http"
+
+	hs "go-practice/pkg/handlers"
 
 	"github.com/gin-gonic/gin"
 )
@@ -20,8 +21,8 @@ func NewMutantHandler() *MutantHandler {
 	return &MutantHandler{}
 }
 
-func (h *MutantHandler) Routes() []Route {
-	return []Route{
+func (h *MutantHandler) Routes() []hs.Route {
+	return []hs.Route{
 		{
 			Method:  "POST",
 			Path:    "/mutant",
@@ -37,7 +38,7 @@ func (h *MutantHandler) IsMutant(c *gin.Context) {
 		return
 	}
 
-	if mutant.IsMutant(req.DNA) {
+	if IsMutant(req.DNA) {
 		c.JSON(http.StatusOK, gin.H{"message": "Mutant DNA detected"})
 	} else {
 		c.JSON(http.StatusForbidden, gin.H{"message": "Not a mutant"})

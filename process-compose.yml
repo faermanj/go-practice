@@ -1,0 +1,4 @@
+
+processes:
+  go-practice:
+   command: cd app && air
